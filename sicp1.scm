@@ -53,7 +53,7 @@ size
 (>= 5 5)
 (>= 0 4)
 
-; e 1.1
+; e1.1
 
 10
 10
@@ -101,8 +101,33 @@ size
    (+ a 1))
 16
 
-; e 1.2
+; e1.2
 
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
 
-; e 1.3
+; e1.3
+
+(define (smallest-number x y z)
+  (and (<= x y) (<= x z)))
+
+(define (largest-square-sums x y z)
+  (cond ((smallest-number x y z) (sum-of-squares y z))
+	((smallest-number y x z) (sum-of-squares x z))
+	((smallest-number z x y) (sum-of-squares x y))))
+
+; e1.4
+
+; if b is greater than zero, sum a and b. Otherwise substract a with b.
+
+; e1.5
+
+(define (p) (p))
+(define (test x y)
+  (if (= x 0) 0 y))
+
+(test 0 (p))
+
+;; Endless recursion with applicative-order, subexpressions are evaluated first.
+;; With normal-order subexpression of (p) would not be evaluated as it's not necessary with arguments 0 and (p).
+
+; 1.1.7
